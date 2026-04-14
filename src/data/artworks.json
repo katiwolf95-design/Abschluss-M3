@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Golden Desert",
+        "image": "/images/art1.jpg",
+        "description": "A warm abstract landscape"
+    },
+    {
+       "id": 2,
+        "title": "Ocean Dream",
+        "image": "/images/art2.jpg",
+        "description": "Deep blue tones and movement" 
+    },
+    {
+       "id": 3,
+        "title": "Silent Forest",
+        "image": "/images/art3.jpg",
+        "description": "Calm and mysterious atmosphere" 
+    }
+]
