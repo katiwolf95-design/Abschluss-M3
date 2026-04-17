@@ -9,14 +9,16 @@ export function ArtworkProvider({ children }) {
     
         async function fetchArtworks() {
             try {
-                const response = await fetch(`${STRAPI_URL}/api/artworks?populate=*`);
+                const response = await fetch(`${STRAPI_URL}/api/artworks?populate=*&pagination[pageSize]=100`);
                 const json = await response.json();
+
+                console.log("ARTWORKS:", json.data.length);
 
                 const formattedArtworks = json.data.map(item => ({
                     id: item.id,
-                    title: item.Title,
+                    title: item.Title?.trim(),
                     year: item.Year,
-                    category: item.Category,
+                    category: item.Category?.trim(),
                     image: item.Image?.url
                         ? `${STRAPI_URL}${item.Image.url}`
                         : ""

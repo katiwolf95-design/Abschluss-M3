@@ -1,5 +1,7 @@
 import Hero from "../components/Hero";
 import { useArtworks } from "../context/ArtworkContext";
+import { Link } from "react-router-dom";
+
 
 export default function Home() {
     const { artworks } = useArtworks();
@@ -140,9 +142,9 @@ console.log("ARTWORKS:", artworks);
 
                 {/* right */}
                 <div className="text-right">
-                    <a href="/contact" className="text-[13px] text-blue-600">
+                    <Link to="/contact" className="text-[13px] text-blue-600">
                         Contact →
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

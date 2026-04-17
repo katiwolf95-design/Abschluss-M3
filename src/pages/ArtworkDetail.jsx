@@ -24,7 +24,7 @@ export default function ArtworkDetail() {
             <img
                 src={art.image}
                 alt={art.title}
-                className="w-full max-h-[800px] object-cover mb-12"
+                className="w-full h-auto object-cover mb-12"
             />
         
             <h1 

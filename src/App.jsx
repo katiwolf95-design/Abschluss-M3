@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import ArtworkDetail from "./pages/ArtworkDetail";
+import Contact from "./pages/Contact";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />
           <Route path="/artwork/:id" element={<ArtworkDetail />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
     </div>
