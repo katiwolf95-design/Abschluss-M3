@@ -1,18 +1,112 @@
-# React + Vite
+Abschlussprojekt M3 – Artist Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projektbeschreibung
 
-Currently, two official plugins are available:
+Dieses Projekt ist eine moderne Artist Portfolio Website, entwickelt mit React, Vite, Tailwind CSS und einem Strapi Headless CMS als Backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Ziel des Projekts war es, eine flexible und erweiterbare Webanwendung zu erstellen, in der Kunstwerke dynamisch über ein CMS verwaltet und im Frontend dargestellt werden können.
 
-## React Compiler
+Die Website enthält:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+eine Home-Seite mit ausgewählten Werken
+eine Gallery mit dynamischem Grid-Layout
+eine About-Seite
+eine Contact-Seite mit Formular
+eine Detailansicht für einzelne Artworks
+globale Datenverwaltung über Context API
+API-Anbindung an Strapi
 
-Note: This will impact Vite dev & build performances.
+Verwendete Technologien
 
-## Expanding the ESLint configuration
+Frontend
+React
+Vite
+React Router DOM
+Tailwind CSS
+Context API
+Hooks (useState, useEffect, useContext)
+Backend
+Strapi Headless CMS
+REST API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Features
+
+Dynamisches Laden von Artworks aus Strapi
+Globale Datenverwaltung mit Context API
+Wiederverwendbare React-Komponenten
+Dynamische Routing-Struktur
+Gallery Layout mit wechselnden Reihen (2er / 3er Grid)
+Detailseiten für einzelne Kunstwerke
+Kontaktformular mit Formular-Handling
+Responsive Grundstruktur mit Tailwind CSS
+
+Technische Umsetzung
+
+Die Daten werden im Strapi CMS gespeichert und über die REST API im Frontend geladen.
+
+Beim Start der Anwendung wird über useEffect ein API-Call ausgeführt.
+Die geladenen Daten werden im Context gespeichert und anschließend in verschiedenen Komponenten verwendet.
+
+Beispiel:
+
+useEffect(() => {
+    fetchArtworks();
+}, []);
+
+Die Bilder werden dynamisch aus Strapi geladen und im Gallery-Layout dargestellt.
+
+Herausforderungen & Lösungen
+
+Problem: Nicht alle Bilder wurden geladen
+
+Strapi limitiert standardmäßig die Anzahl der zurückgegebenen Einträge.
+
+Lösung:
+
+Die Pagination wurde im API-Request angepasst:
+
+/api/artworks?populate=*&pagination[pageSize]=100
+
+Dadurch konnten alle benötigten Artworks korrekt geladen werden.
+
+Projektstruktur
+
+src/
+ ├── components/
+ ├── context/
+ ├── pages/
+ ├── App.jsx
+ └── main.jsx
+
+Installation
+
+Frontend starten
+npm install
+npm run dev
+
+Environment Variables
+
+Eine .env Datei wird benötigt:
+
+VITE_STRAPI_URL=http://localhost:1337
+
+CMS Verwaltung
+
+Die Inhalte und Bilder werden über das Strapi Backend verwaltet.
+
+Das Frontend greift über API-Requests auf die Daten zu und rendert sie dynamisch in React-Komponenten.
+
+
+Mögliche Erweiterungen:
+Login / Authentifizierung
+Dashboard für Admins
+Erweiterte Filter- und Sortierfunktionen
+Vollständige Responsiveness
+Formular mit echtem Mailversand
+Deployment der Anwendung
+
+Entwickelt von
+
+Katharina Wolf
+Frontend Development & Design Project
+Syntax Institut – Abschlussprojekt M3
